@@ -1,0 +1,13 @@
+Changes to the BNF for MiniJava
+
+New non-terminals:
+Program: instead of Goal, we use Program as there is a Program Node under the AST package but no Goal
+MethodDeclList: handles (MethodDeclaration)* by using provided MethodDeclList under ClassDeclaration.
+ClassDeclList: handles (ClassDeclaration)* by using provided ClassDeclList under Goal.
+VarDeclList: handles (VarDeclaration)* by using provided VarDeclList under MethodDeclaration.
+StatementList: handles {(Statement)*} by using provided StatementList under Statement.
+Formal: Together with FormalList, handles (Type Identifier(, Type Identifier)*)? by using provided Formal and FormalList under MethodDeclaration.
+FormalList: See above Formal.
+ExpList: handles (,Expression)* by using provided ExpList under Expression
+ExpressionHead: Created to handle shift reduce conflicts in the Expression productions. 
+ExpressionTail: See above ExpressionHead.

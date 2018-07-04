@@ -1,1 +1,1 @@
-# minijavacompiler
+MiniJava compiler, a compiler that translates MiniJava, a subset of the Java programming language, into machine readable instructions.

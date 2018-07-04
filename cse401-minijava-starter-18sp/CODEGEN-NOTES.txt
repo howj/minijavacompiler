@@ -1,0 +1,8 @@
+As far as we can tell, everything seems to be working. We didn't encounter any major 
+problems or surprises. There were several issues that we had to fix from the Semantics 
+phase of the project, but those were mostly edge cases that we forgot to check for. 
+We also had to change the Parser slightly because the associativity of the +/-/* 
+operators was wrong.
+
+We also changed the boot.c file found in src/runtime slightly to work with arrays bounds
+checking.

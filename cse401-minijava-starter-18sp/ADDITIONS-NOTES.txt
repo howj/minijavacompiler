@@ -1,0 +1,37 @@
+Changes to previous parts of our project:
+
+	Parser & Scanner:
+		Made changes to our JFLEX and CUP files to add the new stuff pertaining to the new double type.
+			CUP
+				- Type ::= "double" new production
+				- "double" is a new reserved word
+				- expr ::= <DOUBLE_LITERAL> new production
+			JFLEX
+				- Added necessary regex for doubleliteral
+				- added keyword for double
+	
+	Semantics:
+		Created DoubleLiteral and DoubleType AST nodes.
+		Changed Plus, Times, Minus so that instead of returning just "int" in getType, they return e1.getType().
+		SemanticsCheckVisitor.java
+			Changes to possibleTypes: added double
+			Changes to checkVarType: added double
+			Overloaded SameType with two new implementations.
+				1: Compare e1 type to e2.
+				2: Compare whether e1's type is equal to s1 OR s2
+			Print: OK to print doubles
+			LessThan, Plus, Times, Minus: added double support
+	
+	Visitors:
+		All visitors needed to be updated with the new DoubleLiteral and DoubleType visit methods.
+		
+	OurSamplePrograms:
+		Added additions folder
+			SimpleDoubleTest and SDT2: tests for everything up to and including semantics for doubles.
+	
+	boot.c:
+		Added a method for printing doubles
+		
+	Code Gen Visitor: 
+	     	 Added checks for type everywhere that it is possible to have an int or a double. In the case of a double, 
+		 adapted code to use floating point registers/ instructions
